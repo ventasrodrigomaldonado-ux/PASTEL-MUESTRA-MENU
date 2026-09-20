@@ -1,0 +1,1843 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pastelería Artesanal</title>
+
+<style>
+
+/* ================================
+   CONFIGURACIÓN GENERAL
+================================ */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,sans-serif;
+    color:#3b2925;
+    background:#fff9f5;
+    position:relative;
+}
+
+
+/* ================================
+   FONDO FIJO
+================================ */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background-image:
+        linear-gradient(
+            rgba(255,248,243,.78),
+            rgba(255,248,243,.78)
+        ),
+        url("images/fondo-pasteles.jpg");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    z-index:-2;
+}
+
+
+/* ================================
+   ENCABEZADO
+================================ */
+
+header{
+
+    background:rgba(75,41,37,.94);
+
+    color:white;
+
+    text-align:center;
+
+    padding:38px 20px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.15);
+}
+
+header h1{
+
+    font-size:32px;
+
+    letter-spacing:1px;
+}
+
+header p{
+
+    margin-top:10px;
+
+    color:#ead8d0;
+
+}
+
+.logo{
+
+    font-size:48px;
+
+    margin-bottom:10px;
+}
+
+
+/* ================================
+   PERFIL
+================================ */
+
+.perfil{
+
+    text-align:center;
+
+    background:rgba(255,255,255,.94);
+
+    padding:25px 20px;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.08);
+}
+
+.foto-perfil{
+
+    width:105px;
+
+    height:105px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid #d8a58e;
+}
+
+.perfil h2{
+
+    margin-top:12px;
+
+    font-size:25px;
+}
+
+.perfil p{
+
+    margin-top:6px;
+
+    color:#777;
+}
+
+
+/* ================================
+   WHATSAPP
+================================ */
+
+.whatsapp{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    background:#25D366;
+
+    color:white;
+
+    padding:12px 25px;
+
+    border-radius:25px;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,.12);
+}
+
+
+/* ================================
+   CONTENEDOR
+================================ */
+
+.contenedor{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:40px 20px;
+}
+
+
+/* ================================
+   TITULOS
+================================ */
+
+.titulo{
+
+    text-align:center;
+
+    margin-bottom:35px;
+
+    background:rgba(255,255,255,.90);
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.08);
+}
+
+.titulo h2{
+
+    font-size:29px;
+}
+
+.titulo p{
+
+    margin-top:8px;
+
+    color:#777;
+}
+
+
+/* ================================
+   CATEGORIAS
+================================ */
+
+.categoria{
+
+    margin-bottom:50px;
+}
+
+.categoria h2{
+
+    text-align:center;
+
+    margin-bottom:22px;
+
+    font-size:25px;
+
+    background:rgba(255,255,255,.90);
+
+    display:table;
+
+    margin-left:auto;
+    margin-right:auto;
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.08);
+}
+
+
+/* ================================
+   GRID
+================================ */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(270px,1fr)
+        );
+
+    gap:22px;
+}
+
+
+/* ================================
+   TARJETAS
+================================ */
+
+.card{
+
+    background:rgba(255,255,255,.97);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 7px 22px rgba(72,39,30,.15);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 12px 28px rgba(72,39,30,.20);
+}
+
+.card img{
+
+    width:100%;
+
+    height:230px;
+
+    object-fit:cover;
+
+    display:block;
+}
+
+.card-content{
+
+    padding:20px;
+}
+
+.card h3{
+
+    font-size:21px;
+
+    margin-bottom:8px;
+}
+
+
+/* ================================
+   DESCRIPCIÓN
+================================ */
+
+.descripcion{
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    color:#777;
+
+    margin-bottom:12px;
+}
+
+
+/* ================================
+   INGREDIENTES
+================================ */
+
+.ingredientes{
+
+    background:#fff5ef;
+
+    border-radius:10px;
+
+    padding:12px;
+
+    font-size:13px;
+
+    line-height:1.5;
+}
+
+.ingredientes strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:#4b2925;
+}
+
+
+/* ================================
+   PRECIO
+================================ */
+
+.precio{
+
+    font-size:21px;
+
+    font-weight:bold;
+
+    color:#a35d3c;
+
+    margin:15px 0;
+}
+
+
+/* ================================
+   BOTÓN
+================================ */
+
+.btn{
+
+    width:100%;
+
+    border:none;
+
+    padding:13px;
+
+    background:#4b2925;
+
+    color:white;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.btn:hover{
+
+    background:#a35d3c;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+
+    background:rgba(75,41,37,.96);
+
+    color:white;
+
+    text-align:center;
+
+    padding:30px 20px;
+
+    margin-top:20px;
+}
+
+footer p{
+
+    margin:6px;
+
+    color:#ddd;
+}
+
+
+/* ================================
+   MODAL
+================================ */
+
+.modal{
+
+    display:none;
+
+    position:fixed;
+
+    z-index:1000;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.65);
+
+    padding:20px;
+
+    overflow:auto;
+}
+
+.modal-box{
+
+    background:white;
+
+    max-width:450px;
+
+    margin:5% auto;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.30);
+}
+
+.cerrar{
+
+    float:right;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    color:#555;
+}
+
+.modal-box h2{
+
+    margin-bottom:10px;
+}
+
+#productoSeleccionado{
+
+    color:#777;
+
+    margin-bottom:10px;
+
+    line-height:1.5;
+}
+
+
+/* ================================
+   FORMULARIO
+================================ */
+
+.formulario{
+
+    margin-top:18px;
+}
+
+.formulario label{
+
+    display:block;
+
+    margin-top:12px;
+
+    font-weight:bold;
+}
+
+.formulario input,
+.formulario textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:5px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    font-family:Arial;
+}
+
+.formulario textarea{
+
+    height:80px;
+
+    resize:none;
+}
+
+
+/* ================================
+   BOTÓN PEDIDO
+================================ */
+
+.pedido{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:14px;
+
+    background:#25D366;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+
+/* ================================
+   CELULAR
+================================ */
+
+@media(max-width:600px){
+
+    header h1{
+
+        font-size:26px;
+    }
+
+    .logo{
+
+        font-size:40px;
+    }
+
+    .contenedor{
+
+        padding:25px 14px;
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+    }
+
+    .card img{
+
+        height:240px;
+    }
+
+    .categoria h2{
+
+        font-size:21px;
+    }
+
+    .titulo{
+
+        padding:20px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div class="logo">🎂</div>
+
+<h1>PASTELERÍA ARTESANAL</h1>
+
+<p>Pasteles hechos con cariño para momentos especiales</p>
+
+</header>
+
+
+<section class="perfil">
+
+<img
+src="images/perfil.jpg"
+class="foto-perfil"
+alt="Pastelera">
+
+<h2>Nombre de la Pastelería</h2>
+
+<p>Pasteles • Postres • Celebraciones</p>
+
+<a
+class="whatsapp"
+href="https://wa.me/523221340289"
+target="_blank">
+
+WhatsApp
+
+</a>
+
+</section>
+
+
+
+<div class="contenedor">
+
+
+<div class="titulo">
+
+<h2>🍰 Nuestros Pasteles</h2>
+
+<p>
+Elige tu favorito y realiza tu pedido por WhatsApp.
+</p>
+
+</div>
+
+
+
+<!-- ================================
+     CHOCOLATE
+================================ -->
+
+<section class="categoria">
+
+<h2>Pasteles de Chocolate</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img
+src="images/pastel-chocolate-1.jpg"
+alt="Pastel de Chocolate">
+
+<div class="card-content">
+
+<h3>Pastel de Chocolate</h3>
+
+<p class="descripcion">
+
+Pastel suave de chocolate con relleno
+cremoso y cobertura de chocolate.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina de trigo, huevo, azúcar,
+cacao, leche, mantequilla,
+chocolate y crema.
+
+</div>
+
+<div class="precio">
+
+$450 MXN
+
+</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Pastel de Chocolate',
+'$450 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-chocolate-2.jpg"
+alt="Chocolate Intenso">
+
+<div class="card-content">
+
+<h3>Chocolate Intenso</h3>
+
+<p class="descripcion">
+
+Pastel de chocolate con relleno
+de ganache y cobertura cremosa.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar, cacao,
+chocolate semiamargo, crema
+y mantequilla.
+
+</div>
+
+<div class="precio">
+
+$550 MXN
+
+</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Chocolate Intenso',
+'$550 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-chocolate-3.jpg"
+alt="Chocolate con Fresas">
+
+<div class="card-content">
+
+<h3>Chocolate con Fresas</h3>
+
+<p class="descripcion">
+
+Chocolate suave acompañado
+con fresas frescas.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar, cacao,
+chocolate, crema, fresas
+y mantequilla.
+
+</div>
+
+<div class="precio">
+
+$600 MXN
+
+</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Chocolate con Fresas',
+'$600 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     VAINILLA
+================================ -->
+
+<section class="categoria">
+
+<h2>Pasteles de Vainilla</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img
+src="images/pastel-vainilla-1.jpg"
+alt="Vainilla Tradicional">
+
+<div class="card-content">
+
+<h3>Vainilla Tradicional</h3>
+
+<p class="descripcion">
+
+Bizcocho de vainilla suave
+con relleno cremoso.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+vainilla, leche y mantequilla.
+
+</div>
+
+<div class="precio">$400 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Vainilla Tradicional',
+'$400 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-vainilla-2.jpg"
+alt="Vainilla con Fresas">
+
+<div class="card-content">
+
+<h3>Vainilla con Fresas</h3>
+
+<p class="descripcion">
+
+Bizcocho de vainilla con
+crema y fresas frescas.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+vainilla, crema, leche
+y fresas.
+
+</div>
+
+<div class="precio">$500 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Vainilla con Fresas',
+'$500 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-vainilla-3.jpg"
+alt="Vainilla con Frutas">
+
+<div class="card-content">
+
+<h3>Vainilla con Frutas</h3>
+
+<p class="descripcion">
+
+Pastel ligero de vainilla
+con crema y fruta.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+vainilla, crema y fruta
+de temporada.
+
+</div>
+
+<div class="precio">$550 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Vainilla con Frutas',
+'$550 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     RED VELVET
+================================ -->
+
+<section class="categoria">
+
+<h2>Red Velvet</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img
+src="images/pastel-red-velvet-1.jpg"
+alt="Red Velvet Clásico">
+
+<div class="card-content">
+
+<h3>Red Velvet Clásico</h3>
+
+<p class="descripcion">
+
+Bizcocho rojo aterciopelado
+con crema de queso.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+cacao, leche, colorante
+y queso crema.
+
+</div>
+
+<div class="precio">$650 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Red Velvet Clásico',
+'$650 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-red-velvet-2.jpg"
+alt="Red Velvet Fresas">
+
+<div class="card-content">
+
+<h3>Red Velvet Fresas</h3>
+
+<p class="descripcion">
+
+Red Velvet con crema
+y fresas frescas.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, cacao,
+azúcar, queso crema,
+crema y fresas.
+
+</div>
+
+<div class="precio">$700 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Red Velvet Fresas',
+'$700 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-red-velvet-3.jpg"
+alt="Red Velvet Especial">
+
+<div class="card-content">
+
+<h3>Red Velvet Especial</h3>
+
+<p class="descripcion">
+
+Presentación especial para
+cumpleaños y celebraciones.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+cacao, queso crema,
+crema y decoración.
+
+</div>
+
+<div class="precio">$800 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Red Velvet Especial',
+'$800 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     ZANAHORIA
+================================ -->
+
+<section class="categoria">
+
+<h2>Pastel de Zanahoria</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img
+src="images/pastel-zanahoria-1.jpg"
+alt="Zanahoria Tradicional">
+
+<div class="card-content">
+
+<h3>Zanahoria Tradicional</h3>
+
+<p class="descripcion">
+
+Pastel húmedo de zanahoria
+con especias y crema.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Zanahoria, harina, huevo,
+azúcar, canela, nuez,
+aceite y queso crema.
+
+</div>
+
+<div class="precio">$550 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Pastel de Zanahoria',
+'$550 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-zanahoria-2.jpg"
+alt="Zanahoria con Nuez">
+
+<div class="card-content">
+
+<h3>Zanahoria con Nuez</h3>
+
+<p class="descripcion">
+
+Pastel de zanahoria con
+nuez y cobertura cremosa.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Zanahoria, harina, huevo,
+azúcar, nuez, canela
+y queso crema.
+
+</div>
+
+<div class="precio">$650 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Zanahoria con Nuez',
+'$650 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-zanahoria-3.jpg"
+alt="Zanahoria Especial">
+
+<div class="card-content">
+
+<h3>Zanahoria Especial</h3>
+
+<p class="descripcion">
+
+Presentación especial para
+eventos y celebraciones.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Zanahoria, harina, huevo,
+nuez, canela, crema
+y decoración.
+
+</div>
+
+<div class="precio">$750 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Zanahoria Especial',
+'$750 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     TRES LECHES
+================================ -->
+
+<section class="categoria">
+
+<h2>Tres Leches</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img
+src="images/pastel-tres-leches-1.jpg"
+alt="Tres Leches Clásico">
+
+<div class="card-content">
+
+<h3>Tres Leches Clásico</h3>
+
+<p class="descripcion">
+
+Bizcocho bañado con mezcla
+de tres leches y crema.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+leche evaporada, leche
+condensada y crema.
+
+</div>
+
+<div class="precio">$500 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Tres Leches Clásico',
+'$500 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-tres-leches-2.jpg"
+alt="Tres Leches con Fresas">
+
+<div class="card-content">
+
+<h3>Tres Leches con Fresas</h3>
+
+<p class="descripcion">
+
+Tres leches acompañado
+con fresas y crema.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Bizcocho, leche evaporada,
+leche condensada, crema
+y fresas.
+
+</div>
+
+<div class="precio">$600 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Tres Leches con Fresas',
+'$600 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-tres-leches-3.jpg"
+alt="Tres Leches con Frutas">
+
+<div class="card-content">
+
+<h3>Tres Leches con Frutas</h3>
+
+<p class="descripcion">
+
+Tres leches con crema
+y fruta de temporada.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Bizcocho, tres leches,
+crema y fruta de temporada.
+
+</div>
+
+<div class="precio">$650 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Tres Leches con Frutas',
+'$650 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================================
+     FRESA
+================================ -->
+
+<section class="categoria">
+
+<h2>Pasteles de Fresa</h2>
+
+<div class="grid">
+
+
+<div class="card">
+
+<img
+src="images/pastel-fresa-1.jpg"
+alt="Fresa con Crema">
+
+<div class="card-content">
+
+<h3>Fresa con Crema</h3>
+
+<p class="descripcion">
+
+Bizcocho suave con crema
+y fresas frescas.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+crema, leche y fresas.
+
+</div>
+
+<div class="precio">$500 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Fresa con Crema',
+'$500 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-fresa-2.jpg"
+alt="Fresa Especial">
+
+<div class="card-content">
+
+<h3>Fresa Especial</h3>
+
+<p class="descripcion">
+
+Pastel de fresa para
+cumpleaños y celebraciones.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+crema, leche y fresas.
+
+</div>
+
+<div class="precio">$650 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Fresa Especial',
+'$650 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<img
+src="images/pastel-fresa-3.jpg"
+alt="Fresa Premium">
+
+<div class="card-content">
+
+<h3>Fresa Premium</h3>
+
+<p class="descripcion">
+
+Decoración especial con
+fresas frescas.
+
+</p>
+
+<div class="ingredientes">
+
+<strong>Ingredientes</strong>
+
+Harina, huevo, azúcar,
+crema, fresas y decoración.
+
+</div>
+
+<div class="precio">$750 MXN</div>
+
+<button
+class="btn"
+onclick="abrirPedido(
+'Fresa Premium',
+'$750 MXN'
+)">
+
+Pedir este pastel
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+
+<footer>
+
+<p>© 2026 Pastelería Artesanal</p>
+
+<p>Pedidos y cotizaciones por WhatsApp</p>
+
+</footer>
+
+
+
+<!-- ================================
+     MODAL DE PEDIDO
+================================ -->
+
+<div
+id="modal"
+class="modal">
+
+<div class="modal-box">
+
+<span
+class="cerrar"
+onclick="cerrarPedido()">
+
+&times;
+
+</span>
+
+<h2>Realizar pedido</h2>
+
+<p id="productoSeleccionado"></p>
+
+
+<form
+class="formulario"
+onsubmit="enviarWhatsApp(event)">
+
+
+<label>Tu nombre</label>
+
+<input
+type="text"
+id="nombre"
+required>
+
+
+<label>Fecha que necesitas el pastel</label>
+
+<input
+type="date"
+id="fecha"
+required>
+
+
+<label>Hora aproximada de entrega</label>
+
+<input
+type="time"
+id="hora"
+required>
+
+
+<label>Mensaje adicional</label>
+
+<textarea
+id="mensajeExtra"
+placeholder="Ejemplo: Es para cumpleaños, quiero escribir 'Feliz cumpleaños'...">
+</textarea>
+
+
+<button
+class="pedido"
+type="submit">
+
+Enviar pedido por WhatsApp
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+let producto = "";
+
+let precio = "";
+
+
+function abrirPedido(
+    nombreProducto,
+    precioProducto
+){
+
+    producto = nombreProducto;
+
+    precio = precioProducto;
+
+    document.getElementById(
+        "productoSeleccionado"
+    ).innerHTML =
+
+        "<strong>" +
+        producto +
+        "</strong><br>" +
+        precio;
+
+    document.getElementById(
+        "modal"
+    ).style.display = "block";
+
+}
+
+
+function cerrarPedido(){
+
+    document.getElementById(
+        "modal"
+    ).style.display = "none";
+
+}
+
+
+function enviarWhatsApp(event){
+
+    event.preventDefault();
+
+
+    let nombre =
+        document.getElementById(
+            "nombre"
+        ).value;
+
+
+    let fecha =
+        document.getElementById(
+            "fecha"
+        ).value;
+
+
+    let hora =
+        document.getElementById(
+            "hora"
+        ).value;
+
+
+    let mensajeExtra =
+        document.getElementById(
+            "mensajeExtra"
+        ).value;
+
+
+    /*
+       CAMBIA ESTE NÚMERO
+       POR EL WHATSAPP
+       DE LA PASTELERA
+    */
+
+    let telefono =
+        "523221340289";
+
+
+    let mensaje =
+
+        "Hola, quiero hacer un pedido.%0A%0A" +
+
+        "Nombre: " +
+        nombre +
+
+        "%0APastel: " +
+        producto +
+
+        "%0APrecio: " +
+        precio +
+
+        "%0AFecha: " +
+        fecha +
+
+        "%0AHora: " +
+        hora +
+
+        "%0AMensaje: " +
+        mensajeExtra;
+
+
+    let url =
+
+        "https://wa.me/" +
+        telefono +
+        "?text=" +
+        mensaje;
+
+
+    window.open(
+        url,
+        "_blank"
+    );
+
+}
+
+
+/* CERRAR MODAL AL HACER CLIC AFUERA */
+
+window.onclick = function(event){
+
+    let modal =
+        document.getElementById("modal");
+
+    if(event.target === modal){
+
+        cerrarPedido();
+
+    }
+
+};
+
+</script>
+
+
+</body>
+
+</html>
+```
